@@ -1,7 +1,7 @@
 let config = {
-    entry : './js/app.jsx',
+    entry : './src/js/app.jsx',
     output: { 
-        path: './',
+        path: './src',
         filename: 'app.bundle.js'
     }
 };
