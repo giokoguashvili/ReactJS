@@ -1,14 +1,20 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
-class Layout extends Component {
+export default class Layout extends Component {
+    constructor(){
+        super();
+        this.title = "Welcome to React world";
+    }
+
+    getTitle() {
+        return this.title;
+    }
+
     render(){
         return (
             <div>
-                Welcome!
+                <h1>{this.getTitle()}</h1>
             </div>
         );
     }
-}
-
-export default Layout
+};
