@@ -1,7 +1,10 @@
 let path = require("path");
+
 let config = {
     context: path.join(__dirname, "./"),
-    entry : './src/js/app.js',
+    entry : {
+        main: './src/js/app.js'
+    },
     module: {
         loaders: [
             {
@@ -21,8 +24,9 @@ let config = {
     devServer:
     {
         inline: true,
-        port: 2727
-    }
+        port: 2727,
+    },
+    // devtool: "eval"
 };
 
 module.exports = config;
