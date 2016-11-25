@@ -5,6 +5,9 @@ let config = {
     entry : {
         main: './src/js/app.js'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     module: {
         loaders: [
             {
