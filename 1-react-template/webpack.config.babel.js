@@ -1,4 +1,6 @@
+let path = require("path");
 let config = {
+    context: path.join(__dirname, "./"),
     entry : './src/js/app.js',
     module: {
         loaders: [
@@ -15,6 +17,11 @@ let config = {
     output: { 
         path: './src',
         filename: 'app.bundle.js'
+    },
+    devServer:
+    {
+        inline: true,
+        port: 2727
     }
 };
 
