@@ -5,23 +5,15 @@ import Footer from "./Footer";
 export default class Layout extends Component {
     constructor(){
         super();
-        this.count = 0;
-        this.state = { name : "gio", count : 1 };
+        this.state = { name : "Gio"};
     }
     render(){
-        this.count += 1;
         setTimeout(() => {
-             this.count += 2;
-           // this.setState({ name : "gio", count : 1 });
-            console.log(this.count);
+            this.setState({ name: "Gio - " + Math.random() })
         }, 1000);
         return (
             <div>
-                <Header/>
-                <div>
-                    {this.state.name} 
-                </div>
-                {this.count} 
+                <Header title={this.state.name}/>
                 <Footer/>
             </div>
         );
