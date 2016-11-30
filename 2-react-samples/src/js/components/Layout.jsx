@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Clock from "./Clock";
 
 export default class Layout extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = { title : "Welcome!"};
     }
 
@@ -14,10 +15,12 @@ export default class Layout extends Component {
 
     render(){
         return (
-            <div>
+            <div className="jora">
+                <Clock />
                 <Header 
                     changeTitle={this.changeTitle.bind(this)} 
-                    title={this.state.title}/>
+                    title={this.state.title + Math.random()}
+                />
                 <Footer/>
             </div>
         );
