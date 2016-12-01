@@ -8,9 +8,20 @@ class ValidationForm extends Component {
             input1 : '',
             input2 : ''
         };
-        console.log("Validation Form Constructor");
+        console.log("ValidationForm: Constructor");
     }
 
+    componentWillMount() {
+        console.log('ValidationForm: componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('ValidationForm: componentDidMount');
+    }
+
+    componentWillUnmount() {
+         console.log('ValidationForm: componentWillUnmount');
+    }
     update(e) {
         console.log(this.refs);
         this.setState({
@@ -20,6 +31,7 @@ class ValidationForm extends Component {
     }
 
     render() {
+        console.log('ValidationForm: render');
         return (
             <form>
                 <label>
