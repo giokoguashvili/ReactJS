@@ -7,7 +7,8 @@ class ValidationForm extends Component {
         this.state = {
             input1 : '',
             input2 : ''
-        }
+        };
+        console.log("Validation Form Constructor");
     }
 
     update(e) {
