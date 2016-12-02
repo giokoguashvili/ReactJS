@@ -6,7 +6,6 @@ class ProductRow extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <tr>
                 <td>

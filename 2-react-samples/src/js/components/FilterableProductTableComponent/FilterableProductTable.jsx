@@ -31,36 +31,17 @@ class FilterableProductTable extends Component {
                     ]  
                 }
             ];
-        console.log(this.props);
-        console.log('FilterableProductTable');
         return (
-            <div>
-                <ProductTable>
-                    {productsCategories.map((productCategory) => {
-                        return <ProductCategoryRow value={productCategory}>
-                            {productCategory.products.map((product) => {
-                                return <ProductRow value={product}/>
-                            })}
-                        </ProductCategoryRow>
-                    })}
-                </ProductTable>    
-            </div>
-
-            // <div>
-            //     <ProductTable>
-                    
-            //             <AComp/>
-                    
-            //     </ProductTable>    
-            // </div>
+            <ProductTable>
+                {productsCategories.map((productCategory) => 
+                    <ProductCategoryRow value={productCategory}>
+                        {productCategory.products.map((product) =>
+                            <ProductRow value={product}/>
+                        )}
+                    </ProductCategoryRow>
+                )}
+            </ProductTable>    
         );
-    }
-}
-
-class AComp extends Component {
-    render() {
-        console.log('AComp');
-        return (<tr><td>AComp div</td></tr>);
     }
 }
 
