@@ -33,10 +33,10 @@ class FilterableProductTable extends Component {
             ];
         return (
             <ProductTable>
-                {productsCategories.map((productCategory) => 
-                    <ProductCategoryRow value={productCategory}>
-                        {productCategory.products.map((product) =>
-                            <ProductRow value={product}/>
+                {productsCategories.map((productCategory, index) => 
+                    <ProductCategoryRow value={productCategory} key={index}>
+                        {productCategory.products.map((product, index2) =>
+                            <ProductRow value={product} key={index2}/>
                         )}
                     </ProductCategoryRow>
                 )}
