@@ -26,4 +26,31 @@ ReactDOM.render(<AddDialog/>, document.getElementById("app6"));
 
 ReactDOM.render(<CancelableDialog/>, document.getElementById("app7"));
 
-ReactDOM.render(<FilterableProductTable/>, document.getElementById("container"));
+
+let products = [
+        {
+            name : 'Sport A',
+            products : [
+                { name : 'A', price : 15 },
+                { name : 'A', price : 20 }
+            ]  
+        },
+        {
+            name : "Sport B",
+            products : [
+                { name : 'B', price : 35 },
+                { name : 'B', price : 45 }
+            ]  
+        },
+        {
+            name : "Sport C",
+            products : [
+                { name : 'C', price : 35 },
+                { name : 'C', price : 45 },
+                { name : 'C', price : 45 }
+            ]  
+        }
+    ];
+ReactDOM.render(
+    <FilterableProductTable productsCategories={products}/>, 
+    document.getElementById("container"));

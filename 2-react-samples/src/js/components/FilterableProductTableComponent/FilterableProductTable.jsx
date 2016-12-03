@@ -13,28 +13,32 @@ import SearchBar from './SearchBar';
 class FilterableProductTable extends Component {
     constructor(props) {
         super(props);
+        this.state = { filteredText : '' };
+        this.handleUserInput = this.handleUserInput.bind(this);
+    }
+
+    handleUserInput(e) {
+        console.log(this.state.filteredText);
+        this.setState({ filteredText : e.target.value });
     }
 
     render() {
-        let productsCategories = [
-                {
-                    name : 'Sport A',
-                    products : [
-                        { name : 'A', price : 15 },
-                        { name : 'A', price : 20 }
-                    ]  
-                },
-                {
-                    name : "Sport B",
-                    products : [
-                        { name : 'B', price : 35 },
-                        { name : 'B', price : 45 }
-                    ]  
-                }
-            ];
+        
+        let productsCategories = this.props
+            .productsCategories
+            .map((item) => {
+                let products = item.products.filter((prod) => this.state.filteredText === '' || prod.name.indexOf(this.state.filteredText) !== -1);
+                return {
+                    name : item.name,
+                    products : products 
+                };
+            })
+            .filter((item) => item.products.length !== 0);
+
+            console.log(productsCategories);
         return (
             <div style={{backgroundColor: 'silver'}}>
-                <SearchBar />
+                <SearchBar onUserInpunt={this.handleUserInput}/>
                 <ProductTable>
                     {productsCategories.map((productCategory, index) => 
                         <ProductCategoryRow value={productCategory} key={index}>
