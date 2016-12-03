@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import ProductRow from './ProductRow';
 import ProductTable from './ProductTable';
 import ProductCategoryRow from './ProductCategoryRow';
+import SearchBar from './SearchBar';
 
 class FilterableProductTable extends Component {
     constructor(props) {
@@ -32,15 +33,18 @@ class FilterableProductTable extends Component {
                 }
             ];
         return (
-            <ProductTable>
-                {productsCategories.map((productCategory, index) => 
-                    <ProductCategoryRow value={productCategory} key={index}>
-                        {productCategory.products.map((product, index2) =>
-                            <ProductRow value={product} key={index2}/>
-                        )}
-                    </ProductCategoryRow>
-                )}
-            </ProductTable>    
+            <div style={{backgroundColor: 'silver'}}>
+                <SearchBar />
+                <ProductTable>
+                    {productsCategories.map((productCategory, index) => 
+                        <ProductCategoryRow value={productCategory} key={index}>
+                            {productCategory.products.map((product, index2) =>
+                                <ProductRow value={product} key={index2}/>
+                            )}
+                        </ProductCategoryRow>
+                    )}
+                </ProductTable>                 
+            </div>
         );
     }
 }
