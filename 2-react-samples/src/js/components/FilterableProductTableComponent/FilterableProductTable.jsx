@@ -30,7 +30,7 @@ class FilterableProductTable extends Component {
                 let products = item.products.filter((prod) => this.state.filteredText === '' || prod.name.indexOf(this.state.filteredText) !== -1);
                 return {
                     name : item.name,
-                    products : products 
+                    products : products
                 };
             })
             .filter((item) => item.products.length !== 0);
