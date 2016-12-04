@@ -1,5 +1,4 @@
 let path = require("path");
-
 let config = {
     context: path.join(__dirname, "./"),
     entry : {
@@ -14,9 +13,17 @@ let config = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/, 
                 loader: "babel-loader",
+                passPerPreset: true,
                 query: {
                     presets: ['es2015', 'react'],
-                    plugins: ['transform-runtime']
+                    plugins: [
+                         ["typecheck", {
+                                "disable": {
+                                    "production": true
+                                }
+                            }
+                        ]
+                    ]
                 }   
             }
         ]

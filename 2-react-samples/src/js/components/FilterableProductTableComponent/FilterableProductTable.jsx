@@ -1,8 +1,4 @@
-// FilterableProductTable (orange): contains the entirety of the example
-// SearchBar (blue): receives all user input
-// ProductTable (green): displays and filters the data collection based on user input
-// ProductCategoryRow (turquoise): displays a heading for each category
-// ProductRow (red): displays a row for each product
+/* @flow */
 
 import React, { Component } from 'react';
 import ProductRow from './ProductRow';
@@ -18,8 +14,10 @@ class FilterableProductTable extends Component {
     }
 
     handleUserInput(e) {
-        console.log(this.state.filteredText);
+        console.log(this.state.filfloteredText);
         this.setState({ filteredText : e.target.value });
+        var i: string = 1;
+
     }
 
     render() {

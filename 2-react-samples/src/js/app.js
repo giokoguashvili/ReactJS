@@ -25,8 +25,7 @@ ReactDOM.render(<SliderApp/>, document.getElementById("app5"));
 ReactDOM.render(<AddDialog/>, document.getElementById("app6"));
 
 ReactDOM.render(<CancelableDialog/>, document.getElementById("app7"));
-
-
+ 
 let products = [
         {
             name : 'Sport A',
