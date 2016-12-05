@@ -43,8 +43,10 @@ let config = {
 
     devServer:
     {
+        hot: true,
         inline: true,
         port: 2727,
+        contentBase: "./build",  
     },
 };
 
