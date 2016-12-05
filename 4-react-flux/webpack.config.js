@@ -32,7 +32,7 @@ let config = {
         new OpenBrowserPlugin({ url: 'http://localhost:2727' }),
         new HtmlWebpackPlugin({
             title: 'React with Flux',
-            template: './src/index.ejs', 
+            template: './src/index.html', 
         })
     ],
 
@@ -43,8 +43,6 @@ let config = {
 
     devServer:
     {
-        hot: true,
-        inline: true,
         port: 2727,
         contentBase: "./build",  
     },
