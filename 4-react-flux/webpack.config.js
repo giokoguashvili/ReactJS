@@ -30,10 +30,10 @@ let config = {
     },
 
     plugins: [
-        new FlowStatusWebpackPlugin({
-            failOnError: true,
-            restartFlow: false
-        }),
+        // new FlowStatusWebpackPlugin({
+        //     failOnError: true,
+        //     restartFlow: false
+        // }),
         new OpenBrowserPlugin({ 
             url: 'http://localhost:2727' 
         }),
