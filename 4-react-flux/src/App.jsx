@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import NavLink from './NavLink';
 
 const propTypes = {
 }
@@ -16,10 +16,13 @@ class App extends Component {
                 <h1>React Router</h1>
                 <ul role="nav">
                     <li>
-                        <Link to="/About" activeStyle={{ color: 'red' }}>About</Link>
+                        <NavLink to="/About">About</NavLink>
                     </li>
                     <li>
-                        <Link to="/Repos/kogoia/react-samples" activeStyle={{ color: 'red' }}>Repos</Link>
+                        <NavLink to="/Repos/kogoia/react-samples">Repos</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/Other/kogoia/react-samples">Other</NavLink>
                     </li>
                 </ul>
                 {this.props.children}
