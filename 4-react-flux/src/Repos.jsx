@@ -13,6 +13,8 @@ class Repos extends Component {
         return (
             <div>
                 Repos
+                <hr/>
+                {this.props.params.userName} - {this.props.params.repoName}
             </div>
         );
     }

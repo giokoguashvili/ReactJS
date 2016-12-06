@@ -16,12 +16,13 @@ class App extends Component {
                 <h1>React Router</h1>
                 <ul role="nav">
                     <li>
-                        <Link to="/About">About</Link>
+                        <Link to="/About" activeStyle={{ color: 'red' }}>About</Link>
                     </li>
                     <li>
-                        <Link to="/Repos">Repos</Link>
+                        <Link to="/Repos/kogoia/react-samples" activeStyle={{ color: 'red' }}>Repos</Link>
                     </li>
                 </ul>
+                {this.props.children}
             </div>
         );
     }

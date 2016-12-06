@@ -9,9 +9,10 @@ import Repos from './Repos';
 
 ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path="/" component={App}/>
-        <Route path="/About" component={About}/>
-        <Route path="/Repos" component={Repos}/>
+        <Route path="/" component={App}>
+            <Route path="/About" component={About}/>
+            <Route path="/Repos/:userName/:repoName" component={Repos}/>
+        </Route>
     </Router>,
     document.getElementById("app")
 );
