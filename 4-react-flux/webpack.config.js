@@ -52,7 +52,8 @@ let config = {
     devServer:
     {
         port: 2727,
-        contentBase: "./build",  
+        contentBase: "./build", 
+        historyApiFallback: true 
     },
 };
 
