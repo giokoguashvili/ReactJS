@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import NavLink from './NavLink';
+import Home from './Home';
 
 const propTypes = {
 }
@@ -15,6 +16,7 @@ class App extends Component {
                 App
                 <h1>React Router</h1>
                 <ul role="nav">
+                    <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
                     <li>
                         <NavLink to="/About">About</NavLink>
                     </li>
