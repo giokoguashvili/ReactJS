@@ -23,6 +23,7 @@
     "babel-preset-react": "^6.16.0",
     "flow-bin": "^0.36.0",
     "flow-status-webpack-plugin": "^0.1.7",
+    "flux": "^3.1.0",
     "html-webpack-plugin": "^2.24.1",
     "open-browser-webpack-plugin": "0.0.3",
     "webpack": "^1.13.3",
