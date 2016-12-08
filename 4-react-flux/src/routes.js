@@ -2,20 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
-export default class RoutedApp {
-    constructor(components) {
-        this._components = components;
-    }
+import App from './App'; 
 
-    create() {
-        return (
-            <Router history={browserHistory}>
-                <Route path="/" component={this._components.App}>
-                </Route>
-            </Router>
-        );
-    }
-}
+const routes = (
+    <Route path="/" component={App}>
+    </Route>
+);
+
+export default routes;
 
 //     <Router history={browserHistory}>
 //         <Route path="/" component={App}>
