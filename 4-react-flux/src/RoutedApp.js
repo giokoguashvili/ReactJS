@@ -1,19 +1,22 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
-import App from './App';
-import About from './About';
-import Repos from './Repos';
-import Other from './Other';
-import Home from './Home';
-import Layout from './Layout';
-import RoutedApp from './RoutedApp';
+export default class RoutedApp {
+    constructor(components) {
+        this._components = components;
+    }
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+    create() {
+        return (
+            <Router history={browserHistory}>
+                <Route path="/" component={this._components.App}>
+                </Route>
+            </Router>
+        );
+    }
+}
 
-// ReactDOM.render(
 //     <Router history={browserHistory}>
 //         <Route path="/" component={App}>
 //             <IndexRoute component={Home} />
@@ -24,12 +27,3 @@ injectTapEventPlugin();
 //             <Route path="/Other/:repoName/:userName" component={Other}/>
 //         </Route>
 //     </Router>,
-//     document.getElementById("app")
-// );
-
-ReactDOM.render(
-    new RoutedApp({
-        App
-    }).create(),
-    document.getElementById("app")
-);
