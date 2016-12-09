@@ -7,10 +7,10 @@ import Welcome from './Welcome';
 import Home from './Home';
 
 const routes = (
-    <Route path="/" component={App}>
+    <Route path="/react-samples" component={App}>
         <IndexRoute component={Welcome}/>
-        <Route path="/Welcome" component={Welcome}/>
-        <Route path="/Home" component={Home}/>
+        <Route path="/react-samples/Welcome" component={Welcome}/>
+        <Route path="/react-samples/Home" component={Home}/>
     </Route>
 );
 
