@@ -26420,8 +26420,8 @@
 	    _reactRouter.Route,
 	    { path: '/react-samples', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Welcome2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/react-samples/Welcome', component: _Welcome2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/react-samples/Home', component: _Home2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/Welcome', component: _Welcome2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/Home', component: _Home2.default })
 	);
 
 	exports.default = routes;
