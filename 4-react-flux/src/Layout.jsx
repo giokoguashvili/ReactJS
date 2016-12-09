@@ -1,9 +1,6 @@
 
 import React, { Component, PropTypes } from 'react';
-
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import Menu from './Menu';
 
 const propTypes = {
 }
@@ -17,20 +14,7 @@ class Layout extends Component {
     render() {
         return (
             <div>
-                <AppBar
-                    title="App"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
-                    onLeftIconButtonTouchTap={this.handleAppBarIconClick}
-                />
-                <Drawer open={this.state.open}>
-                    <AppBar
-                        title="Menu"
-                        iconClassNameRight="muidocs-icon-navigation-expand-more"
-                        onLeftIconButtonTouchTap={this.handleAppBarIconClick}
-                    />
-                    <MenuItem>Menu Item</MenuItem>
-                    <MenuItem>Menu Item 2</MenuItem>
-                </Drawer>   
+                <Menu/> 
                 {this.props.children}                 
             </div>
         );
