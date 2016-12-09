@@ -4,6 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
+import NavLink from './NavLink';
+
 const propTypes = {
 }
 
@@ -11,7 +13,12 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = { open: false };
+        this.handleAppBarIconClick = this.handleAppBarIconClick.bind(this);
     }
+
+    handleAppBarIconClick() {
+        this.setState({ open: !this.state.open });
+    } 
 
     render() {
         return (
@@ -27,8 +34,18 @@ class Menu extends Component {
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
                         onLeftIconButtonTouchTap={this.handleAppBarIconClick}
                     />
-                    <MenuItem>Menu Item</MenuItem>
-                    <MenuItem>Menu Item 2</MenuItem>
+                    <MenuItem
+                        containerElement={<NavLink to="/Welcome"/>}
+                        onTouchTap={this.handleAppBarIconClick}
+                    >
+                        Welcome
+                    </MenuItem>
+                    <MenuItem
+                        containerElement={<NavLink to="/Home"/>}
+                        onTouchTap={this.handleAppBarIconClick}
+                    >
+                        Home
+                    </MenuItem>
                 </Drawer>  
             </div>
         );
