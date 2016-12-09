@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
 import App from './App'; 
+import Welcome from './Welcome';
 
 const routes = (
     <Route path="/" component={App}>
+        <IndexRoute component={Welcome}/>
     </Route>
 );
 

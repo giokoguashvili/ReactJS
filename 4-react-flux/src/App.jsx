@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import NavLink from './NavLink';
-import Home from './Home';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Layout from './Layout';
 
 const propTypes = {
@@ -14,23 +13,9 @@ class App extends Component {
     render() {
         return (
             <MuiThemeProvider>
-                <Layout />
-                <div>
-                    <AppBar
-                        title="App"
-                        iconClassNameRight="muidocs-icon-navigation-expand-more"
-                        onLeftIconButtonTouchTap={this.handleAppBarIconClick}
-                    />
-                    <Drawer open={this.state.open}>
-                        <AppBar
-                            title="Menu"
-                            iconClassNameRight="muidocs-icon-navigation-expand-more"
-                            onLeftIconButtonTouchTap={this.handleAppBarIconClick}
-                        />
-                        <MenuItem>Menu Item</MenuItem>
-                        <MenuItem>Menu Item 2</MenuItem>
-                    </Drawer>                    
-                </div>
+                <Layout>
+                    {this.props.children}
+                </Layout>
             </MuiThemeProvider>
         );
     }
