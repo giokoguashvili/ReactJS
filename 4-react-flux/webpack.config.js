@@ -13,7 +13,7 @@ let config = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx', '.css'],
     },
 
     module: {
@@ -26,6 +26,10 @@ let config = {
                     presets: ['es2015', 'react'],
                     plugins: ['react-html-attrs']
                 }   
+            },
+            { 
+                test: /\.css$/,
+                loader: 'style!css?modules=true'
             }
         ]
     },
