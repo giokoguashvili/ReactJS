@@ -1,6 +1,8 @@
 
 import React, { Component, PropTypes } from 'react';
 import Todo from './Todo';
+import styles from './css/styles';
+
 const propTypes = {
 }
 
@@ -34,7 +36,7 @@ class Featured extends Component {
                 return <Todo key={item.id} {...item}/>
             });
         return (
-            <div>
+            <div class={styles.center}>
                 <h1>Todos</h1>
                 <ul>
                     {TodoComponents}

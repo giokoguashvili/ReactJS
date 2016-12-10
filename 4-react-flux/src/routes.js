@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-ro
 import App from './App'; 
 import Welcome from './Welcome';
 import Home from './Home';
-import Featured from './Featured';
+import Featured from './Featured/Featured';
 
 const routes = (
     <Route path="/" component={App}>

@@ -1,7 +1,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import Menu from './Menu';
-import style from './css/styles.css';
 
 const propTypes = {
 }
@@ -13,11 +12,10 @@ class Layout extends Component {
     }
 
     render() {
-        console.log(style);
         return (
             <div>
                 <Menu/>
-                <div class={style.center}>
+                <div>
                     {this.props.children}             
                 </div>     
             </div>
