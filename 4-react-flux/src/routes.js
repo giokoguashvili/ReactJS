@@ -5,12 +5,14 @@ import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-ro
 import App from './App'; 
 import Welcome from './Welcome';
 import Home from './Home';
+import Featured from './Featured';
 
 const routes = (
-    <Route path="/react-samples" component={App}>
+    <Route path="/" component={App}>
         <IndexRoute component={Welcome}/>
-        <Route path="/react-samples/Welcome" component={Welcome}/>
-        <Route path="/react-samples/Home" component={Home}/>
+        <Route path="/Welcome" component={Welcome}/>
+        <Route path="/Home" component={Home}/>
+        <Route path="/Featured" component={Featured}/>
     </Route>
 );
 
