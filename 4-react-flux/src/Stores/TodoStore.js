@@ -24,9 +24,15 @@ class TodoStore extends EventEmitter {
             ];
     }
 
+    deleteTodo(id) {
+        this.todos = this.todos.filter((item) => item.id !== id);
+        this.emit('change');
+    }
+
     addTodo(text) {
+        console.log(this.todos);
         this.todos.push({
-            id: new Date(),
+            id: Date.now(),
             text,
             complete: false
         })
@@ -36,7 +42,7 @@ class TodoStore extends EventEmitter {
     asLiElements(Todo) {
         return this.todos
                 .map((item) =>{
-                    return <Todo key={item.id} text={item.text}/>
+                    return <Todo key={item.id} {...item}/>
                 });
     }
 
@@ -44,7 +50,12 @@ class TodoStore extends EventEmitter {
         switch(action.type){
             case 'CREATE_TODO': {
                 this.addTodo(action.text);
-            } 
+                break;
+            }
+            case 'DELETE_TODO': {
+                this.deleteTodo(action.id);
+                break;
+            }
         }
     }
 }

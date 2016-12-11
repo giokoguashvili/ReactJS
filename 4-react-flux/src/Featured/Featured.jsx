@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Todo from './Todo';
 import styles from './css/styles';
-import todoStore from '../Stores/todoStore';
+import todoStore from '../stores/todoStore';
+import * as TodoActions from '../actions/TodoActions';
 
 const propTypes = {
 }
@@ -9,6 +10,10 @@ const propTypes = {
 class Featured extends Component {
     constructor(props) {
         super(props);
+    }
+
+    createTodo(){
+        TodoActions.createTodo();
     }
     
     componentWillMount(){
@@ -23,6 +28,7 @@ class Featured extends Component {
         return (
             <div class={styles.center}>
                 <h1>Todos</h1>
+                <button onClick={this.createTodo.bind(this)}>Create TODO</button>
                 <ul>
                     {TodoComponents}
                 </ul>
