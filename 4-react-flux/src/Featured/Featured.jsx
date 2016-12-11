@@ -10,6 +10,12 @@ class Featured extends Component {
     constructor(props) {
         super(props);
     }
+    
+    componentWillMount(){
+        todoStore.addListener('change', () => {
+            this.forceUpdate();
+        });
+    }
 
     render() {
         var TodoComponents = todoStore

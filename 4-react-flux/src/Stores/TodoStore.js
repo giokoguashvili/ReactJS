@@ -23,14 +23,23 @@ class TodoStore extends EventEmitter {
             ];
     }
 
+    addTodo(text) {
+        this.todos.push({
+            id: new Date(),
+            text,
+            complete: false
+        })
+
+        this.emit('change');
+    }
     asLiElements(Todo) {
-        console.log(Todo);
         return this.todos
                 .map((item) =>{
-                    return <Todo key={item.id} {...item}/>
+                    return <Todo key={item.id} text={item.text}/>
                 });
     }
 }
 
 const todoStore = new TodoStore;
+window.todoStore = todoStore;
 export default todoStore;
