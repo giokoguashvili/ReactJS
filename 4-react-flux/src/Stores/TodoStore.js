@@ -1,5 +1,6 @@
 import React from 'react';
 import { EventEmitter } from 'events';
+import dispatcher from '../dispatcher';
 
 class TodoStore extends EventEmitter {
     constructor(){
@@ -38,8 +39,18 @@ class TodoStore extends EventEmitter {
                     return <Todo key={item.id} text={item.text}/>
                 });
     }
+
+    handleActions(action) {
+        switch(action.type){
+            case 'CREATE_TODO': {
+                this.addTodo(action.text);
+            } 
+        }
+    }
 }
 
 const todoStore = new TodoStore;
+dispatcher.register(todoStore.handleActions.bind(todoStore));
+
 window.todoStore = todoStore;
 export default todoStore;
