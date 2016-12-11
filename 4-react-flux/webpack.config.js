@@ -2,11 +2,18 @@ let path = require("path");
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
+var webpack = require('webpack');
 
 
 let config = {
 
     context: path.join(__dirname, "./"),
+
+    // entry : [
+    //     'webpack-dev-server/client?http://localhost:2727',
+    //     'webpack/hot/dev-server',
+    //     './src/main.js'
+    // ],
 
     entry : {
         main: './src/main.js'
@@ -18,16 +25,19 @@ let config = {
 
     module: {
         loaders: [
-            {
+            { 
+                test:  /\.(js|jsx)$/,
+                exclude: /node_modules/, 
+                loader: 'react-hot'
+            }, {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/, 
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react'],
                     plugins: ['react-html-attrs']
                 }   
-            },
-            { 
+            }, { 
                 test: /\.css$/,
                 loader: 'style!css?modules=true'
             }
@@ -45,7 +55,8 @@ let config = {
         new HtmlWebpackPlugin({
             title: 'React with Flux',
             template: './src/index.html', 
-        })
+        }),
+        // new webpack.HotModuleReplacementPlugin()
     ],
 
     output: { 
@@ -53,8 +64,8 @@ let config = {
         filename: 'app.bundle.js'
     },
 
-    devServer:
-    {
+    devServer: {
+        // hot: true,
         port: 2727,
         contentBase: "./build", 
         historyApiFallback: true 
