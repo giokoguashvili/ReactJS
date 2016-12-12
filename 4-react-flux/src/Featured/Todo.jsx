@@ -19,12 +19,21 @@ class Todo extends Component {
 
     removeTodo(){
         console.log(this.props.id);
+
+        if (!this.props.complete) {
+            this.props.onDelete(this.props.id);
+            return;
+        } 
         TodoActions.removeTodo(this.props.id);
     }
 
     completeTodo(e, isInputChecked) {
         console.log('isChecked ' + isInputChecked);
         TodoActions.completeTodo(this.props.id, isInputChecked);
+    }
+
+    handleTodoRemoveBtnClick() {
+        
     }
 
     render() {
