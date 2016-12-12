@@ -1,9 +1,9 @@
 import dispatcher from '../dispatcher';
 
-export function createTodo() {
+export function createTodo(inputData) {
     dispatcher.dispatch({
         type: 'CREATE_TODO',
-        text: Date.now(),
+        text: inputData,
     });
 }
 

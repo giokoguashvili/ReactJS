@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import Todo from './Todo';
+import CustomInput from '../CustomInput/CustomInput';
+
 import styles from './css/styles';
 import todoStore from '../stores/todoStore';
 import * as TodoActions from '../actions/TodoActions';
+
+
 
 const propTypes = {
 }
@@ -12,8 +16,8 @@ class Featured extends Component {
         super(props);
     }
 
-    createTodo(){
-        TodoActions.createTodo();
+    createTodo(inputData){
+        TodoActions.createTodo(inputData);
     }
     
     componentWillMount(){
@@ -23,12 +27,15 @@ class Featured extends Component {
     }
 
     render() {
+        const style = {
+            margin: 15,
+        };
         var TodoComponents = todoStore
             .asLiElements(Todo);
         return (
             <div class={styles.center}>
-                <h1>Todos</h1>
-                <button onClick={this.createTodo.bind(this)}>Create TODO</button>
+                <h1>Todoss</h1>
+                <CustomInput onAddBtnClick={this.createTodo.bind(this)}/>
                 <ul>
                     {TodoComponents}
                 </ul>
