@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import Todo from './Todo';
 import CustomInput from '../CustomInput/CustomInput';
+import { List } from 'material-ui/List';
 
 import styles from './css/styles';
 import todoStore from '../stores/todoStore';
 import * as TodoActions from '../actions/TodoActions';
+
 
 
 
@@ -36,9 +38,10 @@ class Featured extends Component {
             <div class={styles.center}>
                 <h1>Todoss</h1>
                 <CustomInput onAddBtnClick={this.createTodo.bind(this)}/>
-                <ul>
-                    {TodoComponents}
-                </ul>
+
+                <List>
+                   {TodoComponents}
+                </List>
             </div>
         );
     }
