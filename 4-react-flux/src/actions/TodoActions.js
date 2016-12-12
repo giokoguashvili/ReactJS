@@ -13,3 +13,11 @@ export function removeTodo(id) {
         id,
     });
 }
+
+export function completeTodo(id, complete) {
+    dispatcher.dispatch({
+        type: 'COMPLETE_TODO',
+        id,
+        complete,
+    });
+}

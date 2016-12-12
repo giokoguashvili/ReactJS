@@ -14,11 +14,17 @@ class Todo extends Component {
         super(props);
         console.log(this.props);
         this.removeTodo = this.removeTodo.bind(this);
+        this.completeTodo = this.completeTodo.bind(this);
     }
 
     removeTodo(){
         console.log(this.props.id);
         TodoActions.removeTodo(this.props.id);
+    }
+
+    completeTodo(e, isInputChecked) {
+        console.log('isChecked ' + isInputChecked);
+        TodoActions.completeTodo(this.props.id, isInputChecked);
     }
 
     render() {
@@ -32,7 +38,10 @@ class Todo extends Component {
             <ListItem 
                 style={style}
                 primaryText={this.props.text} 
-                leftCheckbox={<Checkbox />} 
+                leftCheckbox={<Checkbox
+                                onCheck={this.completeTodo}
+                                checked={this.props.complete} 
+                            />} 
                 rightIconButton={<FlatButton
                                     style={flatButtonStyle}
                                     secondary={true}

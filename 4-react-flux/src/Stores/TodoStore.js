@@ -8,17 +8,17 @@ class TodoStore extends EventEmitter {
         this.todos = [
                 {
                     id: 15,
-                    text: 'user Babel',
+                    text: 'use Babel',
                     complete: true,
                 },
                 {
                     id: 17,
-                    text: 'user ESlint',
+                    text: 'use ESlint',
                     complete: false,
                 },
                 {
                     id: 19,
-                    text: 'user React',
+                    text: 'use React',
                     complete: true,
                 }
             ];
@@ -39,11 +39,20 @@ class TodoStore extends EventEmitter {
 
         this.emit('change');
     }
-    asLiElements(Todo) {
-        return this.todos
-                .map((item) =>{
-                    return <Todo key={item.id} {...item}/>
-                });
+
+    completeTodo({ id, complete }) {
+        this.todos = this.todos
+                        .map((item) => {
+                            if (item.id === id) {
+                                return {
+                                    id: item.id,
+                                    text: item.text,
+                                    complete
+                                }
+                            }
+                            return item;
+                        });
+        this.emit('change');
     }
 
     handleActions(action) {
@@ -56,7 +65,19 @@ class TodoStore extends EventEmitter {
                 this.deleteTodo(action.id);
                 break;
             }
+            case 'COMPLETE_TODO': {
+                this.completeTodo(action);
+                break;
+            }
         }
+    }
+
+
+    asLiElements(Todo) {
+        return this.todos
+                .map((item) =>{
+                    return <Todo key={item.id} {...item}/>
+                });
     }
 }
 
