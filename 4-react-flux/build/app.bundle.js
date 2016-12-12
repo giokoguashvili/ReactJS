@@ -34092,7 +34092,7 @@
 	                    _react2.default.createElement(
 	                        _MenuItem2.default,
 	                        {
-	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/Welcome' }),
+	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/react-samples/Welcome' }),
 	                            onTouchTap: this.handleAppBarIconClick
 	                        },
 	                        'Welcome'
@@ -34100,7 +34100,7 @@
 	                    _react2.default.createElement(
 	                        _MenuItem2.default,
 	                        {
-	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/Home' }),
+	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/react-samples/Home' }),
 	                            onTouchTap: this.handleAppBarIconClick
 	                        },
 	                        'Home'
@@ -34108,7 +34108,7 @@
 	                    _react2.default.createElement(
 	                        _MenuItem2.default,
 	                        {
-	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/Featured' }),
+	                            containerElement: _react2.default.createElement(_NavLink2.default, { to: '/react-samples/Featured' }),
 	                            onTouchTap: this.handleAppBarIconClick
 	                        },
 	                        'Featured'

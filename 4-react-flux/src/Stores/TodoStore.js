@@ -75,6 +75,7 @@ class TodoStore extends EventEmitter {
     getAllTodos() {
         return this.todos;
     }
+    
     asLiElements(Todo) {
         return this.todos
                 .map((item) =>{
