@@ -62,7 +62,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reactTapEventPlugin = __webpack_require__(501);
+	var _reactTapEventPlugin = __webpack_require__(503);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -44484,25 +44484,25 @@
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
-	var _CustomInput = __webpack_require__(484);
+	var _CustomInput = __webpack_require__(486);
 
 	var _CustomInput2 = _interopRequireDefault(_CustomInput);
 
-	var _List = __webpack_require__(474);
+	var _List = __webpack_require__(476);
 
-	var _Dialog = __webpack_require__(493);
+	var _Dialog = __webpack_require__(495);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(481);
+	var _FlatButton = __webpack_require__(483);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
-	var _styles = __webpack_require__(495);
+	var _styles = __webpack_require__(497);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
-	var _todoStore = __webpack_require__(499);
+	var _todoStore = __webpack_require__(501);
 
 	var _todoStore2 = _interopRequireDefault(_todoStore);
 
@@ -44654,13 +44654,13 @@
 
 	var TodoActions = _interopRequireWildcard(_TodoActions);
 
-	var _List = __webpack_require__(474);
+	var _List = __webpack_require__(476);
 
-	var _Checkbox = __webpack_require__(476);
+	var _Checkbox = __webpack_require__(478);
 
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
-	var _FlatButton = __webpack_require__(481);
+	var _FlatButton = __webpack_require__(483);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -44768,25 +44768,29 @@
 
 	var _dispatcher2 = _interopRequireDefault(_dispatcher);
 
+	var _Constants = __webpack_require__(474);
+
+	var _Constants2 = _interopRequireDefault(_Constants);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function createTodo(inputData) {
 	    _dispatcher2.default.dispatch({
-	        type: 'CREATE_TODO',
+	        type: _Constants2.default.CREATE_TODO,
 	        text: inputData
 	    });
 	}
 
 	function removeTodo(id) {
 	    _dispatcher2.default.dispatch({
-	        type: 'DELETE_TODO',
+	        type: _Constants2.default.DELETE_TODO,
 	        id: id
 	    });
 	}
 
 	function completeTodo(id, complete) {
 	    _dispatcher2.default.dispatch({
-	        type: 'COMPLETE_TODO',
+	        type: _Constants2.default.COMPLETE_TODO,
 	        id: id,
 	        complete: complete
 	    });
@@ -45071,6 +45075,71 @@
 /* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _fluxConstants = __webpack_require__(475);
+
+	var _fluxConstants2 = _interopRequireDefault(_fluxConstants);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _fluxConstants2.default)(["CREATE_TODO", "DELETE_TODO", "COMPLETE_TODO"]);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Constants.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 475 */
+/***/ function(module, exports) {
+
+	var UsageErrors = {
+		PARAM_TYPE: new TypeError('You must pass an array to this function.'),
+		CONSTANT_VALUE: new TypeError('Each constant in the array must be represented by a string')
+	};
+
+	module.exports = (function() {
+
+	  // Set the initial value for contiguous integer assignment to be 0.
+	  // By keeping this here, in the closure outside the function we can make sure that no integer value is ever repeated.
+	  var nextCompactValue = 0;
+
+	  return function (values, compact) {
+	    if(!(values instanceof Array)) {
+	      throw UsageErrors.PARAM_TYPE;
+	    }
+
+	    var constants = {}; // Constants will be returned with the new values
+	    if(!compact) {
+	      values.forEach(function(value) {
+	        if('string' !== typeof value) {
+	          throw UsageErrors.CONSTANT_VALUE;
+	        }
+	        constants[value.toUpperCase()] = value.toUpperCase();
+	      });
+	    } else {
+	      // When 'compact' is set to true, the value of the constants will be represented by contiguous integerss to make them more compact in memory
+	      values.forEach(function(key) {
+	        if('string' !== typeof key) {
+	          throw UsageErrors.CONSTANT_VALUE;
+	        }
+	        constants[key.toUpperCase()] = nextCompactValue++;
+	      });
+	    }
+
+	    return constants;
+	  };
+	}());
+
+
+/***/ },
+/* 476 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -45086,7 +45155,7 @@
 
 	var _ListItem3 = _interopRequireDefault(_ListItem2);
 
-	var _makeSelectable2 = __webpack_require__(475);
+	var _makeSelectable2 = __webpack_require__(477);
 
 	var _makeSelectable3 = _interopRequireDefault(_makeSelectable2);
 
@@ -45098,7 +45167,7 @@
 	exports.default = _List3.default;
 
 /***/ },
-/* 475 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45268,7 +45337,7 @@
 	exports.default = makeSelectable;
 
 /***/ },
-/* 476 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45278,7 +45347,7 @@
 	});
 	exports.default = undefined;
 
-	var _Checkbox = __webpack_require__(477);
+	var _Checkbox = __webpack_require__(479);
 
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
@@ -45287,7 +45356,7 @@
 	exports.default = _Checkbox2.default;
 
 /***/ },
-/* 477 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45332,7 +45401,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _EnhancedSwitch = __webpack_require__(478);
+	var _EnhancedSwitch = __webpack_require__(480);
 
 	var _EnhancedSwitch2 = _interopRequireDefault(_EnhancedSwitch);
 
@@ -45340,11 +45409,11 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _checkBoxOutlineBlank = __webpack_require__(479);
+	var _checkBoxOutlineBlank = __webpack_require__(481);
 
 	var _checkBoxOutlineBlank2 = _interopRequireDefault(_checkBoxOutlineBlank);
 
-	var _checkBox = __webpack_require__(480);
+	var _checkBox = __webpack_require__(482);
 
 	var _checkBox2 = _interopRequireDefault(_checkBox);
 
@@ -45583,7 +45652,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 478 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46040,7 +46109,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 479 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46077,7 +46146,7 @@
 	exports.default = ToggleCheckBoxOutlineBlank;
 
 /***/ },
-/* 480 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46114,7 +46183,7 @@
 	exports.default = ToggleCheckBox;
 
 /***/ },
-/* 481 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46124,7 +46193,7 @@
 	});
 	exports.default = undefined;
 
-	var _FlatButton = __webpack_require__(482);
+	var _FlatButton = __webpack_require__(484);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -46133,7 +46202,7 @@
 	exports.default = _FlatButton2.default;
 
 /***/ },
-/* 482 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46190,7 +46259,7 @@
 
 	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
 
-	var _FlatButtonLabel = __webpack_require__(483);
+	var _FlatButtonLabel = __webpack_require__(485);
 
 	var _FlatButtonLabel2 = _interopRequireDefault(_FlatButtonLabel);
 
@@ -46464,7 +46533,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 483 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46556,7 +46625,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 484 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -46573,11 +46642,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TextField = __webpack_require__(485);
+	var _TextField = __webpack_require__(487);
 
 	var _TextField2 = _interopRequireDefault(_TextField);
 
-	var _RaisedButton = __webpack_require__(491);
+	var _RaisedButton = __webpack_require__(493);
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
@@ -46671,7 +46740,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "CustomInput.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 485 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46681,7 +46750,7 @@
 	});
 	exports.default = undefined;
 
-	var _TextField = __webpack_require__(486);
+	var _TextField = __webpack_require__(488);
 
 	var _TextField2 = _interopRequireDefault(_TextField);
 
@@ -46690,7 +46759,7 @@
 	exports.default = _TextField2.default;
 
 /***/ },
-/* 486 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46747,19 +46816,19 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _EnhancedTextarea = __webpack_require__(487);
+	var _EnhancedTextarea = __webpack_require__(489);
 
 	var _EnhancedTextarea2 = _interopRequireDefault(_EnhancedTextarea);
 
-	var _TextFieldHint = __webpack_require__(488);
+	var _TextFieldHint = __webpack_require__(490);
 
 	var _TextFieldHint2 = _interopRequireDefault(_TextFieldHint);
 
-	var _TextFieldLabel = __webpack_require__(489);
+	var _TextFieldLabel = __webpack_require__(491);
 
 	var _TextFieldLabel2 = _interopRequireDefault(_TextFieldLabel);
 
-	var _TextFieldUnderline = __webpack_require__(490);
+	var _TextFieldUnderline = __webpack_require__(492);
 
 	var _TextFieldUnderline2 = _interopRequireDefault(_TextFieldUnderline);
 
@@ -47254,7 +47323,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 487 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47500,7 +47569,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 488 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47582,7 +47651,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 489 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47699,7 +47768,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 490 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47835,7 +47904,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 491 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47845,7 +47914,7 @@
 	});
 	exports.default = undefined;
 
-	var _RaisedButton = __webpack_require__(492);
+	var _RaisedButton = __webpack_require__(494);
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
@@ -47854,7 +47923,7 @@
 	exports.default = _RaisedButton2.default;
 
 /***/ },
-/* 492 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -48335,7 +48404,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 493 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48345,7 +48414,7 @@
 	});
 	exports.default = undefined;
 
-	var _Dialog = __webpack_require__(494);
+	var _Dialog = __webpack_require__(496);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
@@ -48354,7 +48423,7 @@
 	exports.default = _Dialog2.default;
 
 /***/ },
-/* 494 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -48947,16 +49016,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 495 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(496);
+	var content = __webpack_require__(498);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(498)(content, {});
+	var update = __webpack_require__(500)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -48973,10 +49042,10 @@
 	}
 
 /***/ },
-/* 496 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(497)();
+	exports = module.exports = __webpack_require__(499)();
 	// imports
 
 
@@ -48989,7 +49058,7 @@
 	};
 
 /***/ },
-/* 497 */
+/* 499 */
 /***/ function(module, exports) {
 
 	/*
@@ -49045,7 +49114,7 @@
 
 
 /***/ },
-/* 498 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -49297,7 +49366,7 @@
 
 
 /***/ },
-/* 499 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49316,7 +49385,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _events = __webpack_require__(500);
+	var _events = __webpack_require__(502);
 
 	var _dispatcher = __webpack_require__(471);
 
@@ -49439,7 +49508,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\react-samples\\4-react-flux\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "todoStore.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 500 */
+/* 502 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -49747,11 +49816,11 @@
 
 
 /***/ },
-/* 501 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(8);
-	var defaultClickRejectionStrategy = __webpack_require__(502);
+	var defaultClickRejectionStrategy = __webpack_require__(504);
 
 	var alreadyInjected = false;
 
@@ -49773,14 +49842,14 @@
 	  alreadyInjected = true;
 
 	  __webpack_require__(42).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(503)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(505)(shouldRejectClick)
 	  });
 	};
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 502 */
+/* 504 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -49791,7 +49860,7 @@
 
 
 /***/ },
-/* 503 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -49819,10 +49888,10 @@
 	var EventPluginUtils = __webpack_require__(44);
 	var EventPropagators = __webpack_require__(41);
 	var SyntheticUIEvent = __webpack_require__(75);
-	var TouchEventUtils = __webpack_require__(504);
+	var TouchEventUtils = __webpack_require__(506);
 	var ViewportMetrics = __webpack_require__(76);
 
-	var keyOf = __webpack_require__(505);
+	var keyOf = __webpack_require__(507);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -49968,7 +50037,7 @@
 
 
 /***/ },
-/* 504 */
+/* 506 */
 /***/ function(module, exports) {
 
 	/**
@@ -50016,7 +50085,7 @@
 
 
 /***/ },
-/* 505 */
+/* 507 */
 /***/ function(module, exports) {
 
 	"use strict";

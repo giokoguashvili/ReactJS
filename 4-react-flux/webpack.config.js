@@ -50,7 +50,7 @@ let config = {
         //     restartFlow: false
         // }),
         new OpenBrowserPlugin({ 
-            url: 'http://localhost:2727' 
+            url: 'http://localhost:2727/react-samples/' 
         }),
         new HtmlWebpackPlugin({
             title: 'React with Flux',
@@ -67,7 +67,7 @@ let config = {
     devServer: {
         // hot: true,
         port: 2727,
-        contentBase: "./build", 
+        contentBase: "./src", 
         historyApiFallback: true 
     },
 };

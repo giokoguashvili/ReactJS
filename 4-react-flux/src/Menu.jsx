@@ -35,19 +35,19 @@ class Menu extends Component {
                         onLeftIconButtonTouchTap={this.handleAppBarIconClick}
                     />
                     <MenuItem
-                        containerElement={<NavLink to="/react-samples/Welcome"/>}
+                        containerElement={<NavLink to="/Welcome"/>}
                         onTouchTap={this.handleAppBarIconClick}
                     >
                         Welcome
                     </MenuItem>
                     <MenuItem
-                        containerElement={<NavLink to="/react-samples/Home"/>}
+                        containerElement={<NavLink to="/Home"/>}
                         onTouchTap={this.handleAppBarIconClick}
                     >
                         Home
                     </MenuItem>
                     <MenuItem
-                        containerElement={<NavLink to="/react-samples/Featured"/>}
+                        containerElement={<NavLink to="/Featured"/>}
                         onTouchTap={this.handleAppBarIconClick}
                     >
                         Featured

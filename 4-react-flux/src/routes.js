@@ -8,11 +8,11 @@ import Home from './Home';
 import Featured from './Featured/Featured';
 
 const routes = (
-    <Route path="/react-samples" component={App}>
+    <Route path="/" component={App}>
         <IndexRoute component={Welcome}/>
-        <Route path="/react-samples/Welcome" component={Welcome}/>
-        <Route path="/react-samples/Home" component={Home}/>
-        <Route path="/react-samples/Featured" component={Featured}/>
+        <Route path="/Welcome" component={Welcome}/>
+        <Route path="/Home" component={Home}/>
+        <Route path="/Featured" component={Featured}/>
     </Route>
 );
 

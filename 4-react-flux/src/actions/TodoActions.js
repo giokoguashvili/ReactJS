@@ -1,22 +1,23 @@
 import dispatcher from '../dispatcher';
+import ActionTypes from '../Constants';
 
 export function createTodo(inputData) {
     dispatcher.dispatch({
-        type: 'CREATE_TODO',
+        type: ActionTypes.CREATE_TODO,
         text: inputData,
     });
 }
 
 export function removeTodo(id) {
     dispatcher.dispatch({
-        type: 'DELETE_TODO',
+        type: ActionTypes.DELETE_TODO,
         id,
     });
 }
 
 export function completeTodo(id, complete) {
     dispatcher.dispatch({
-        type: 'COMPLETE_TODO',
+        type: ActionTypes.COMPLETE_TODO,
         id,
         complete,
     });
