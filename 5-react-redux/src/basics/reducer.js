@@ -13,8 +13,12 @@ const updateState = (state = 0, action) => {
     }
 };
 
-assert.equal(updateState(0, { type: 'INC', count: 2 }), 2);
-assert.equal(updateState(1, { type: 'SOME_ACTION' }), 1);
-assert.equal(updateState(1, { type: 'DEC', count: 2 }), -1);
+const incrementAction = { type: 'INC', count: 2 };
+const decrementAction = { type: 'DEC', count: 2 };
+const someAction = { type: 'SOME_ACTION' };
+
+assert.equal(updateState(0, incrementAction), 2);
+assert.equal(updateState(1, someAction), 1);
+assert.equal(updateState(1, decrementAction), -1);
 
 console.log('Tests passed!');
