@@ -1,5 +1,5 @@
 import { createStore } from 'Redux'
-import appTodo from './reducers/appTodo.js'
+import appTodo from './reducers'
 
 const store = createStore(appTodo);
 

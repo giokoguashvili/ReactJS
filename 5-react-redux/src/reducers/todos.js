@@ -1,8 +1,10 @@
+import ActionTypes from '../Constants'
+
 let todoId = 0;
 
 const todos = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case ActionTypes.ADD_TODO:
             return [
                 ...state,
                 {  

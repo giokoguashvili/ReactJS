@@ -1,5 +1,5 @@
 import { combineReducers } from 'Redux'
-import todos from './todos.js'
+import todos from './todos'
 
 const appTodo = combineReducers({
     todos
