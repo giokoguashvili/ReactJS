@@ -10,11 +10,18 @@ const todos = (state = [], action) => {
                 {  
                     id: todoId++,
                     text: action.text,
-                    complete: false
+                    completed: false
                 }
             ];
         case ActionTypes.REMOVE_TODO:
             return state.filter((item) => item.id !== action.todoId);
+        case ActionTypes.TOGGLE_TODO:
+            return state.map((item) => {
+                if (item.id === action.todoId) {
+                    return { ...item, completed: !item.completed }
+                }
+                return item;
+            });
         default:
             return state;
     }

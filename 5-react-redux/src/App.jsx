@@ -21,7 +21,11 @@ class App extends Component {
                 </button>
                 <ul>
                     {this.props.todos.map((item) =>
-                            <li key={item.id}>
+                            <li 
+                                key={item.id} 
+                                style={{color: item.completed ? 'red' : 'blue' }}
+                                onClick={() => {store.dispatch({type: ActionTypes.TOGGLE_TODO, todoId: item.id})}}
+                            >
                                 {item.text}
                                 <button
                                     onClick={() => { store.dispatch({ type: ActionTypes.REMOVE_TODO, todoId: item.id })}} 
