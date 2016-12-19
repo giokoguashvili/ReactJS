@@ -13,8 +13,8 @@ const todos = (state = [], action) => {
                     complete: false
                 }
             ];
-        case 'DEC':
-            return state - 1;
+        case ActionTypes.REMOVE_TODO:
+            return state.filter((item) => item.id !== action.todoId);
         default:
             return state;
     }
