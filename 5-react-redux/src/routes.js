@@ -6,7 +6,7 @@ import App from './App'
 
 const routes = (
     <Route path="/" component={App}>
-        <IndexRoute component={Welcome}/>
+        <IndexRoute component={Tasks}/>
         <Route path="/tasks" component={Tasks}/>
     </Route>
 );

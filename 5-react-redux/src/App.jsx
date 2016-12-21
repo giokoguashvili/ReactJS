@@ -6,21 +6,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <MuiThemeProvider>
-                <Layout>
-                    {this.props.children}
-                </Layout>
-            </MuiThemeProvider>
-        );
-    }
-}
+const App = (props) => (
+        <MuiThemeProvider>
+            <Layout>
+                {props.children}
+            </Layout>
+        </MuiThemeProvider>
+);
 
 export default App;
 

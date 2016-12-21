@@ -1,17 +1,10 @@
-import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Tasks from './Tasks'
 
-class Todos extends Component {
-    constructor(prosp) {
-        super(prosp);
-    }
-
-    render(){
-        return (
-            <div>
-                
-            </div>
-        );
+const mapStateToProps = (state) => {
+    return {
+        todos: state.tasks.todos
     }
 }
 
-export default Todos;
+export default connect(mapStateToProps)(Tasks);

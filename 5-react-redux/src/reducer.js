@@ -1,5 +1,5 @@
 import { combineReducers } from 'Redux'
-import tasks from './todos/reducers'
+import tasks from './tasks/reducers'
 import { routerReducer } from 'react-router-redux'
 
 const reducer = combineReducers({

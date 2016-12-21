@@ -1,4 +1,4 @@
-import ActionTypes from '../../Constants'
+import ActionTypes from '../constants/ActionTypes'
 
 let todoId = 0;
 
@@ -13,8 +13,9 @@ const todos = (state = [], action) => {
                     completed: false
                 }
             ];
-        case ActionTypes.REMOVE_TODO:
+        case ActionTypes.DELETE_TODO: {
             return state.filter((item) => item.id !== action.todoId);
+        }
         case ActionTypes.TOGGLE_TODO:
             return state.map((item) => {
                 if (item.id === action.todoId) {
