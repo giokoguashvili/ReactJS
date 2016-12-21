@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Todo from '../components/Todo'
-import { deleteTodo } from '../actions'
+import { deleteTodo, toggleTodo } from '../actions'
 
 const propTypes = {
 }
@@ -15,8 +15,18 @@ class TodoList extends Component {
         return (
             <ul>
                 {this.props.todos.map((item) => 
-                    <li key={item.id}>
-                        <Todo id={item.id} text={item.text} onDeleteBtnClick={this.props.handleDeleteBtnClick}/>
+                    <li 
+                        key={item.id} 
+                        style={{
+                            textDecoration: item.completed ? 'line-through' : 'none'
+                        }}
+                    >
+                        <Todo 
+                            id={item.id} 
+                            text={item.text} 
+                            onDeleteBtnClick={this.props.handleDeleteBtnClick}
+                            onTodoClick={this.props.handleTodoClick}
+                        />
                     </li>
                 )}                    
             </ul>
@@ -39,7 +49,7 @@ const getVisibleTodos = (todos, filter) => {
 
 const mapStateToProps = (state) => {
     return {
-        todos: getVisibleTodos(state.tasks.todos, state.tasks.visibilityFilter)
+        todos: getVisibleTodos(state.tasks.todos, state.tasks.visibilityFilter),
     }
 }
 
@@ -47,6 +57,9 @@ const mapDispatchToPros = (dispatch) => {
     return {
         handleDeleteBtnClick: (todoId) => {
             dispatch(deleteTodo(todoId));
+        },
+        handleTodoClick: (todoId) => {
+            dispatch(toggleTodo(todoId));
         }
     }
 }

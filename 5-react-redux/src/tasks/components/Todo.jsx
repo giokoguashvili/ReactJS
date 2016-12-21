@@ -9,10 +9,11 @@ class Todo extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
-            <div>
-                {this.props.text}
+            <div 
+                onClick={() => this.props.onTodoClick(this.props.id)}
+            >
+                <span>{this.props.text}</span> 
                 <button
                     onClick={() => this.props.onDeleteBtnClick(this.props.id)}
                 >

@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 
 const initialState = {
     tasks: {
-        visibilityFilter: 'SHOW_COMPLETED',
+        visibilityFilter: 'SHOW_ALL',
         todos: [
             {
                 id: 1,

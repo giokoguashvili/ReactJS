@@ -13,9 +13,8 @@ const todos = (state = [], action) => {
                     completed: false
                 }
             ];
-        case ActionTypes.DELETE_TODO: {
+        case ActionTypes.DELETE_TODO:
             return state.filter((item) => item.id !== action.todoId);
-        }
         case ActionTypes.TOGGLE_TODO:
             return state.map((item) => {
                 if (item.id === action.todoId) {
