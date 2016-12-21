@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import AppBar from 'material-ui/AppBar';
 
 const propTypes = {
 }
@@ -11,7 +12,13 @@ class Layout extends Component {
     render() {
         return (
             <div>
-                {this.props.children}
+                <AppBar
+                    title="Title"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                />
+                <div class="center">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

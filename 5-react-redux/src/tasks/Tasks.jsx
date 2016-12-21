@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TodoList from './containers/TodoList'
+import VisibleTodoList from './containers/VisibleTodoList'
 
 class Tasks extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class Tasks extends Component {
     render(){
         return (
             <div>
-                <TodoList />
+                <VisibleTodoList />
             </div>
         );
     }
