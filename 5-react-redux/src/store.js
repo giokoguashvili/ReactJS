@@ -7,17 +7,17 @@ const initialState = {
         visibilityFilter: 'SHOW_ALL',
         todos: [
             {
-                id: 1,
+                id: 991,
                 text: 'React',
                 completed: true
             },
             {
-                id: 2,
+                id: 992,
                 text: 'Redux',
                 completed: false
             },
             {
-                id: 3,
+                id: 993,
                 text: '.net core',
                 completed: false
             }
