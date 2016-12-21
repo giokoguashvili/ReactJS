@@ -1,7 +1,7 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import store from './store'
 
 import routes from './routes';
 import injectTapEventPlugin from 'react-tap-event-plugin';

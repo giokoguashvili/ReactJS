@@ -1,4 +1,4 @@
-import ActionTypes from '../Constants'
+import ActionTypes from '../../Constants'
 
 let todoId = 0;
 
