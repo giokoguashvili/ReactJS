@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, IndexRoute, browserHistory } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 import Welcome from './Welcome'
 import Tasks from './tasks'
 import App from './App'

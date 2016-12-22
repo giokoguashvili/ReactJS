@@ -1,4 +1,3 @@
-import TodoList from '../components/TodoList'
 import { connect } from 'react-redux'
 import { deleteTodo, toggleTodo } from '../actions'
 
@@ -30,9 +29,9 @@ const mapDispatchToPros = (dispatch) => {
     }
 }
 
-const VisibleTodoList = connect(
+const visibleTodoListContainer = connect(
     mapStateToProps,
     mapDispatchToPros
-)(TodoList);
+);
 
-export default VisibleTodoList;
+export default visibleTodoListContainer;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import VisibleTodoList from './containers/VisibleTodoList'
-import TodoAdd from './containers/TodoAdd'
+import VisibleTodoList from './components/VisibleTodoList'
+import TodoAdd from './components/TodoAdd'
 
 class Tasks extends Component {
     constructor(props) {

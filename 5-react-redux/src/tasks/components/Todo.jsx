@@ -1,7 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-
-const propTypes = {
-}
+import React, { Component, PropTypes } from 'react'
+import { ListItem } from 'material-ui/List'
 
 class Todo extends Component {
     constructor(props) {
@@ -10,9 +8,7 @@ class Todo extends Component {
 
     render() {
         return (
-            <div 
-                onClick={() => this.props.onTodoClick(this.props.id)}
-            >
+            <div>
                 <span>{this.props.text}</span> 
                 <button
                     onClick={() => this.props.onDeleteBtnClick(this.props.id)}
@@ -23,7 +19,5 @@ class Todo extends Component {
         );
     }
 }
-
-Todo.propTypes = propTypes;
 
 export default Todo;

@@ -11,7 +11,7 @@ class Layout extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{textAlign: 'center'}}>
                 <AppBar
                     title="Title"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
