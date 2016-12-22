@@ -8,14 +8,22 @@ class Todo extends Component {
 
     render() {
         return (
-            <div>
-                <span>{this.props.text}</span> 
+            <ListItem
+                onClick={() => this.props.onTodoClick(this.props.id)}
+            >
+                <span
+                    style={{
+                        textDecoration: this.props.completed ? 'line-through' : 'none'
+                    }} 
+                >
+                    {this.props.text}
+                </span> 
                 <button
                     onClick={() => this.props.onDeleteBtnClick(this.props.id)}
                 >
                     X
                 </button>
-            </div>
+            </ListItem>
         );
     }
 }

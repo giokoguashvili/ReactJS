@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import visibleTodoListContainer from '../containers/visibleTodoListContainer'
-import TodoList from './TodoList'
 import Todo from './Todo'
+import { List } from 'material-ui/List'
 
 class VisibleTodoList extends Component {
     constructor(props) {
@@ -10,17 +10,16 @@ class VisibleTodoList extends Component {
 
     render() {
         return (
-            <TodoList>
+            <List>
                 {this.props.todos.map((item) => 
-                    <Todo 
+                    <Todo
                         key={item.id}
-                        id={item.id} 
-                        text={item.text} 
+                        {...item} 
                         onDeleteBtnClick={this.props.handleDeleteBtnClick}
                         onTodoClick={this.props.handleTodoClick}
                     />
                 )}      
-            </TodoList>
+            </List>
         );
     }
 }
