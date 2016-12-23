@@ -1,5 +1,5 @@
-import todos from './todos'
+import todoItems from './todoItems'
 import visibilityFilter from './visibilityFilter'
 
-export { todos }
+export { todoItems }
 export { visibilityFilter }

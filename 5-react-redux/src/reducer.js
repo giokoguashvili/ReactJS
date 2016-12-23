@@ -1,11 +1,11 @@
 import { combineReducers } from 'Redux'
 import { routerReducer } from 'react-router-redux'
 
-import { todos, visibilityFilter } from './tasks/reducers'
+import { todoItems, visibilityFilter } from './todos/reducers'
 
 const reducer = combineReducers({
-    tasks: combineReducers({
-        todos,
+    todos: combineReducers({
+        todoItems,
         visibilityFilter
     }),
     routing: routerReducer

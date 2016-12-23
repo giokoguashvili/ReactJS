@@ -1,20 +1,20 @@
 import { connect } from 'react-redux'
 import { deleteTodo, toggleTodo } from '../actions'
 
-const getVisibleTodos = (todos, filter) => {
+const getVisibleTodos = (todoItems, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
-        return todos
+        return todoItems
         case 'SHOW_COMPLETED':
-        return todos.filter(t => t.completed)
+        return todoItems.filter(t => t.completed)
         case 'SHOW_ACTIVE':
-        return todos.filter(t => !t.completed)
+        return todoItems.filter(t => !t.completed)
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        todos: getVisibleTodos(state.tasks.todos, state.tasks.visibilityFilter),
+        todos: getVisibleTodos(state.todos.todoItems, state.todos.visibilityFilter),
     }
 }
 

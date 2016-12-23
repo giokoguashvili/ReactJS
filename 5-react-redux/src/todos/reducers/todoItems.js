@@ -2,7 +2,7 @@ import ActionTypes from '../constants/ActionTypes'
 
 let todoId = 0;
 
-const todos = (state = [], action) => {
+const todoItems = (state = [], action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO:
             return [
@@ -27,4 +27,4 @@ const todos = (state = [], action) => {
     }
 } 
 
-export default todos;
+export default todoItems;

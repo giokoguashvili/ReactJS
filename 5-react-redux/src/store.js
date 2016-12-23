@@ -3,9 +3,9 @@ import reducer from './reducer'
 import { routerReducer } from 'react-router-redux'
 
 const initialState = {
-    tasks: {
+    todos: {
         visibilityFilter: 'SHOW_ALL',
-        todos: [
+        todoItems: [
             {
                 id: 991,
                 text: 'React',
