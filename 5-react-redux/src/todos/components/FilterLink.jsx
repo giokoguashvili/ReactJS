@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import filterLinkContainer from '../containers/filterLinkContainer'
+import FlatButton from 'material-ui/FlatButton'
 
 class FilterLink extends Component {
     constructor(props) {
@@ -9,19 +10,21 @@ class FilterLink extends Component {
     render() {
         if (this.props.active) {
             return (
-                <span>{this.props.children}</span>
+                <FlatButton
+                    label={this.props.children}
+                    secondary={true}
+                />
             );
         }
         return (
-            <a 
-                href="#"
+            <FlatButton
+                label={this.props.children}
                 onClick={(e) => {
                      e.preventDefault();
                      this.props.handleOnClick();
                 }}
-            >
-                {this.props.children}
-            </a>
+                primary={true}
+            />
         );
     }
 }

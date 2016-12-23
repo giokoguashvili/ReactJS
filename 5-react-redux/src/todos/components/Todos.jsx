@@ -12,10 +12,10 @@ class Tasks extends Component {
 
     render(){
         return (
-            <div  class={main.center} style={{width: 400}}>
+            <div  class={main.center} style={{width: 460}}>
                 <TodoAdd />
-                <VisibleTodoList />
                 <TodosFooter />
+                <VisibleTodoList />
             </div>
         );
     }
