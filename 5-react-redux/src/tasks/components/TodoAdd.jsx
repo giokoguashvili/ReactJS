@@ -19,6 +19,7 @@ const TodoAdd = ({ handleTodoAddSubmit }) => {
                 type="submit"
                 label="ADD" 
                 primary={true} 
+                style={{marginLeft: 50}}
             />
         </form>
     );

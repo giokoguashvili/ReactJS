@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { ListItem } from 'material-ui/List'
+import FlatBotton from 'material-ui/FlatButton'
+import FontIcon from 'material-ui/FontIcon';
 
 class Todo extends Component {
     constructor(props) {
@@ -10,6 +12,13 @@ class Todo extends Component {
         return (
             <ListItem
                 onClick={() => this.props.onTodoClick(this.props.id)}
+                rightIconButton={
+                    <FlatBotton
+                        onClick={() => this.props.onDeleteBtnClick(this.props.id)}
+                        icon={<FontIcon className="material-icons">delete</FontIcon>}
+                        style={{marginTop: 5}}
+                    />
+                }
             >
                 <span
                     style={{
@@ -18,11 +27,7 @@ class Todo extends Component {
                 >
                     {this.props.text}
                 </span> 
-                <button
-                    onClick={() => this.props.onDeleteBtnClick(this.props.id)}
-                >
-                    X
-                </button>
+
             </ListItem>
         );
     }

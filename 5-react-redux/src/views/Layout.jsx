@@ -11,12 +11,12 @@ class Layout extends Component {
 
     render() {
         return (
-            <div style={{textAlign: 'center'}}>
+            <div>
                 <AppBar
                     title="Title"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-                <div class="center">
+                <div>
                     {this.props.children}
                 </div>
             </div>

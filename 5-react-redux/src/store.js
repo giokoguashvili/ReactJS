@@ -17,7 +17,7 @@ const initialState = {
                 completed: false
             },
             {
-                id: 993,
+                id: 93,
                 text: '.net core',
                 completed: false
             }
