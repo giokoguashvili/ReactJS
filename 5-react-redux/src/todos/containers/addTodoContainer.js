@@ -9,4 +9,10 @@ const dispatchToProps = (dispatch) => {
         }
     };
 };
-export default connect(null, dispatchToProps);
+
+const addTodoContainer = connect(
+    null, 
+    dispatchToProps
+);
+
+export default addTodoContainer;

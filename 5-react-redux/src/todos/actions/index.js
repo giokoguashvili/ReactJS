@@ -11,3 +11,7 @@ export function toggleTodo(id){
 export function addTodo(text){
     return { type: ActionTypes.ADD_TODO, text }
 }
+
+export function setVisibilityFilter(filter) {
+    return { type: ActionTypes.SET_VISIBILITY_FILTER, filter }
+}
