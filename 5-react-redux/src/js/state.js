@@ -4,6 +4,9 @@ class State {
     }
 
     loadState() {
+        if (this._initialState)
+            return this._initialState;
+            
         try {
             const serializedState = localStorage.getItem('state');
             if (serializedState === null) {

@@ -29,7 +29,6 @@ const initialState = {
     },
 }
 
-console.log('index.js');
 new App(
     new Store(
         new Reducer(),

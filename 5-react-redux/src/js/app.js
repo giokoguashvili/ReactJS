@@ -9,7 +9,6 @@ class App {
     }
 
     init() {
-        console.log('App.init()');
         ReactDOM.render(
             <Provider store={this._store.init()}>
                 {this._routes.init()}
