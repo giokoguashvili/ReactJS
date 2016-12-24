@@ -1,17 +1,17 @@
 import ActionTypes from '../constants/ActionTypes'
 
-export function deleteTodo(id){
+export const deleteTodo = (id) => {
     return { type: ActionTypes.DELETE_TODO, todoId: id }
 }
 
-export function toggleTodo(id){
+export const toggleTodo = (id) => {
     return { type: ActionTypes.TOGGLE_TODO, todoId: id }
 }
 
-export function addTodo(text){
+export const addTodo = (text) => {
     return { type: ActionTypes.ADD_TODO, text }
 }
 
-export function setVisibilityFilter(filter) {
+export const setVisibilityFilter = (filter) => {
     return { type: ActionTypes.SET_VISIBILITY_FILTER, filter }
 }

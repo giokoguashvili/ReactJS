@@ -7,7 +7,6 @@ import main from './css/main.css'
 class Tasks extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
     }
 
     render(){

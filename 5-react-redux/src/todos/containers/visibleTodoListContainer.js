@@ -4,11 +4,11 @@ import { deleteTodo, toggleTodo } from '../actions'
 const getVisibleTodos = (todoItems, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
-        return todoItems
+            return todoItems
         case 'SHOW_COMPLETED':
-        return todoItems.filter(t => t.completed)
+            return todoItems.filter(t => t.completed)
         case 'SHOW_ACTIVE':
-        return todoItems.filter(t => !t.completed)
+            return todoItems.filter(t => !t.completed)
     }
 }
 
@@ -18,16 +18,14 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToPros = (dispatch) => {
-    return {
-        handleDeleteBtnClick: (todoId) => {
-            dispatch(deleteTodo(todoId));
-        },
-        handleTodoClick: (todoId) => {
-            dispatch(toggleTodo(todoId));
-        }
+const mapDispatchToPros = (dispatch) => ({
+    handleDeleteBtnClick(todoId) {
+        dispatch(deleteTodo(todoId));
+    },
+    handleTodoClick(todoId) {
+        dispatch(toggleTodo(todoId));
     }
-}
+})
 
 const visibleTodoListContainer = connect(
     mapStateToProps,

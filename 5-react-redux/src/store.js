@@ -7,7 +7,7 @@ const initialState = {
         visibilityFilter: 'SHOW_ALL',
         todoItems: [
             {
-                id: 991,
+                id: '991',
                 text: 'React',
                 completed: true
             },
