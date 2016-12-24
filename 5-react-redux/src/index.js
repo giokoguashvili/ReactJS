@@ -11,18 +11,18 @@ const initialState = {
         visibilityFilter: 'SHOW_ALL',
         todoItems: [
             {
-                id: 991,
+                id: 'f54c9475-7bd5-40f1-ac9a-c7fa285c385a',
                 text: 'React',
                 completed: true
             },
             {
-                id: 992,
+                id: 'db72b4e7-a476-4fd4-a16f-fb3e67566139',
                 text: 'Redux',
                 completed: false
             },
             {
-                id: 93,
-                text: '.net core',
+                id: 'df5590ad-0e54-4e8c-80f5-d84941e1e0da',
+                text: '.Net Core',
                 completed: false
             }
         ],
