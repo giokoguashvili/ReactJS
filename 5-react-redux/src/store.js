@@ -1,13 +1,14 @@
 import { createStore, combineReducers } from 'Redux'
 import reducer from './reducer'
 import { routerReducer } from 'react-router-redux'
+import { saveState, loadState } from './localStorage'
 
 const initialState = {
     todos: {
         visibilityFilter: 'SHOW_ALL',
         todoItems: [
             {
-                id: '991',
+                id: 991,
                 text: 'React',
                 completed: true
             },
@@ -24,10 +25,14 @@ const initialState = {
         ],
     },
 }
-
+const persistState = loadState();
 const store = createStore(
     reducer, 
-    initialState
+    persistState || initialState
 );
+
+store.subscribe(() => {
+    saveState(store.getState());
+});
 
 export default store;
