@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-const propTypes = {
-}
-
 class Welcome extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +12,4 @@ class Welcome extends Component {
     }
 }
 
-Welcome.propTypes = propTypes;
-
-export default Welcome;
+export default Welcome

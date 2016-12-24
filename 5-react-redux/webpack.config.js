@@ -9,7 +9,7 @@ let config = {
     context: path.join(__dirname, "./"),
     
     entry : {
-        main: './src/main.js'
+        main: './src/index.js'
     },
 
     resolve: {

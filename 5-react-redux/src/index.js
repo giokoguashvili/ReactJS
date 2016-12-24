@@ -1,7 +1,10 @@
-import { createStore, combineReducers } from 'Redux'
-import reducer from './reducer'
-import { routerReducer } from 'react-router-redux'
-import { saveState, loadState } from './localStorage'
+import React from 'react'
+import App from './js/app'
+import Store from './js/store'
+import Reducer from './js/reducer'
+import State from './js/state'
+import Routes from './js/routes'
+import Root from './js/root'
 
 const initialState = {
     todos: {
@@ -25,14 +28,16 @@ const initialState = {
         ],
     },
 }
-const persistState = loadState();
-const store = createStore(
-    reducer, 
-    persistState || initialState
-);
 
-store.subscribe(() => {
-    saveState(store.getState());
-});
-
-export default store;
+console.log('index.js');
+new App(
+    new Store(
+        new Reducer(),
+        new State(
+            initialState
+        )
+    ),
+    new Routes(
+        new Root()
+    )
+).init();
