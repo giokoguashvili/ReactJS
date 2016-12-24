@@ -1,6 +1,5 @@
 import ActionTypes from '../constants/ActionTypes'
-
-let todoId = 0;
+import { v4 } from 'node-uuid';
 
 const todoItems = (state = [], action) => {
     switch (action.type) {
@@ -8,7 +7,7 @@ const todoItems = (state = [], action) => {
             return [
                 ...state,
                 {  
-                    id: todoId++,
+                    id: v4(),
                     text: action.text,
                     completed: false
                 }
