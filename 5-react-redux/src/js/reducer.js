@@ -1,6 +1,6 @@
 import { combineReducers } from 'Redux'
 import { routerReducer } from 'react-router-redux'
-import { todoItems, visibilityFilter } from '../todos/reducers'
+import { todoItems, visibilityFilter } from '../modules/todos/reducers'
 
 class Reducer {
     init() {

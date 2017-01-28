@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Todos from '../todos'
+import Todos from '../modules/todos'
 
 class Home extends Component {
     constructor(props) {
