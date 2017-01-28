@@ -9,11 +9,11 @@ class Routes {
         this._root = root;
     }
     init() {
-        return(
+        return (
             <Router history={browserHistory}>
                 <Route path="/" component={this._root.init()}>
                     <IndexRoute component={Welcome} />
-                    <Route path="/Home" component={Home} />
+                    <Route path="/Home(/:filter)" component={Home} />
                 </Route>
             </Router>
         );

@@ -4,8 +4,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import Layout from '../views/Layout'
 
 class Root {
-    init() {
+    constructor() {
         injectTapEventPlugin();
+    }
+    init() {
         return (props) => {
             return (
                 <MuiThemeProvider>

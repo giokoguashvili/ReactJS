@@ -22,7 +22,6 @@ class VisibleTodoList extends Component {
                             />
                     )}
                 </List>
-                <TodoDeleteModal />
             </div>
         );
     }

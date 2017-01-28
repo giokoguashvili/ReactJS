@@ -40,3 +40,5 @@ new App(
         new Root()
     )
 ).init();
+
+window.App = App;

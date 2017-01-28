@@ -7,8 +7,8 @@ var webpack = require('webpack');
 let config = {
 
     context: path.join(__dirname, "./"),
-    
-    entry : {
+
+    entry: {
         main: './src/index.js'
     },
 
@@ -20,13 +20,13 @@ let config = {
         loaders: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/, 
+                exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'stage-2', 'react'],
                     plugins: ['react-html-attrs']
-                }   
-            }, { 
+                }
+            }, {
                 test: /\.css$/,
                 loader: 'style!css?modules=true'
             }
@@ -38,26 +38,36 @@ let config = {
         //     failOnError: true,
         //     restartFlow: false
         // }),
-        new OpenBrowserPlugin({ 
-            url: 'http://localhost:2727/' 
+        new OpenBrowserPlugin({
+            url: 'http://localhost:2727/'
         }),
         new HtmlWebpackPlugin({
             title: 'React with Redux',
-            template: './src/index.html', 
+            template: './src/index.html',
         }),
         // new webpack.HotModuleReplacementPlugin()
     ],
 
-    output: { 
+    output: {
         path: './build',
-        filename: 'app.bundle.js'
+        filename: 'app.bundle.js',
+        publicPath : '/'
     },
 
     devServer: {
         // hot: true,
         port: 2727,
-        contentBase: "./src", 
-        historyApiFallback: true 
+        contentBase: "./src",
+        historyApiFallback: true,
+        // historyApiFallback: {
+        //     index: "/build/"
+        // }
+        // historyApiFallback: {
+        //     rewrites: [{
+        //         from: /\/(\d\.)?app\.js(\.map)?/,
+        //         to: context => context.match[0]
+        //     }]
+        // }
     },
 };
 

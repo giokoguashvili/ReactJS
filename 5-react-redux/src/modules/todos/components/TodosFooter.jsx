@@ -13,13 +13,13 @@ class TodosFooter extends Component {
                 <ToolbarGroup>
                     <ToolbarTitle text="Show" />
                     <ToolbarSeparator />
-                    <FilterLink filter="SHOW_ALL">
+                    <FilterLink filter="/home/all">
                         All
                     </FilterLink>
-                    <FilterLink filter="SHOW_ACTIVE">
+                    <FilterLink filter="/home/active">
                         Active
                     </FilterLink>
-                    <FilterLink filter="SHOW_COMPLETED">
+                    <FilterLink filter="/home/completed">
                         Completed
                     </FilterLink>
                 </ToolbarGroup>

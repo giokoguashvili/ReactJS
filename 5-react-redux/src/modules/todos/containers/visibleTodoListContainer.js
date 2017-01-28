@@ -1,22 +1,21 @@
 import { connect } from 'react-redux'
 import { deleteTodo, toggleTodo } from '../actions'
+import { withRouter } from 'react-router'
 
 const getVisibleTodos = (todoItems, filter) => {
     switch (filter) {
-        case 'SHOW_ALL':
+        case 'all':
             return todoItems
-        case 'SHOW_COMPLETED':
+        case 'completed':
             return todoItems.filter(t => t.completed)
-        case 'SHOW_ACTIVE':
+        case 'active':
             return todoItems.filter(t => !t.completed)
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: getVisibleTodos(state.todos.todoItems, state.todos.visibilityFilter),
-    }
-}
+const mapStateToProps = (state, { params }) => ({
+    todos: getVisibleTodos(state.todos.todoItems, params.filter || 'all')
+});
 
 const mapDispatchToPros = (dispatch) => ({
     handleDeleteBtnClick(todoId) {
@@ -27,9 +26,11 @@ const mapDispatchToPros = (dispatch) => ({
     }
 })
 
-const visibleTodoListContainer = connect(
-    mapStateToProps,
-    mapDispatchToPros
-);
+const visibleTodoListContainer =
+    (component) =>
+        withRouter(connect(
+            mapStateToProps,
+            mapDispatchToPros
+        )(component));
 
 export default visibleTodoListContainer;

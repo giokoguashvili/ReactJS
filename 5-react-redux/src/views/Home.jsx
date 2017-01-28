@@ -9,7 +9,9 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Todos />
+                <Todos
+                    filter={this.props.params.filter || 'all' } 
+                />
             </div>
         );
     }
