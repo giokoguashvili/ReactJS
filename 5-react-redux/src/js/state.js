@@ -1,15 +1,19 @@
+import { combineReducers } from 'Redux'
+
 class State {
-    constructor(initialState) {
+    constructor(reducer, initialState) {
+        this._reducer = reducer;
         this._initialState = initialState;
     }
-
+    combinedReducers() {
+        return this._reducer.init();
+    }
     loadState() {
-        if (this._initialState)
-            return this._initialState;
-            
         try {
             const serializedState = localStorage.getItem('state');
             if (serializedState === null) {
+                if (this._initialState)
+                    return this._initialState;
                 return undefined;
             }
             return JSON.parse(serializedState);

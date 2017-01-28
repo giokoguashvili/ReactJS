@@ -31,8 +31,8 @@ const initialState = {
 
 new App(
     new Store(
-        new Reducer(),
         new State(
+            new Reducer(),
             initialState
         )
     ),
