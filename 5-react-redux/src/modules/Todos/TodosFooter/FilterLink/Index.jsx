@@ -16,4 +16,4 @@ const FilterLink = ({ filter, children }) => (
     </Link>
 );
 
-export default container(FilterLink);
+export default FilterLink;
