@@ -1,4 +1,4 @@
-import ActionTypes from '../constants/ActionTypes'
+import ActionTypes from '../ActionTypes'
 import { v4 } from 'node-uuid';
 
 const todoItems = (state = [], action) => {

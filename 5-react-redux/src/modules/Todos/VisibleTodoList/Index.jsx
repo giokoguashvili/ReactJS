@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import visibleTodoListContainer from '../containers/visibleTodoListContainer'
+import container from './container'
 import Todo from './Todo'
 import { List } from 'material-ui/List'
 import TodoDeleteModal from './TodoDeleteModal'
@@ -10,6 +10,7 @@ class VisibleTodoList extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <List>
@@ -27,4 +28,4 @@ class VisibleTodoList extends Component {
     }
 }
 
-export default visibleTodoListContainer(VisibleTodoList);
+export default container(VisibleTodoList);

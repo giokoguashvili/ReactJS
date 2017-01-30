@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import Todos from '../modules/todos'
+import Todos from '../../modules/Todos'
 
-class Home extends Component {
+class Tasks extends Component {
     constructor(props) {
         super(props);
     }
@@ -17,4 +17,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Tasks;

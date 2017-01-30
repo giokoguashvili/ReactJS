@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import filterLinkContainer from '../containers/filterLinkContainer'
 import FlatButton from 'material-ui/FlatButton'
 import { Link } from 'react-router'
+
+import container from './container'
 
 const FilterLink = ({ filter, children }) => (
     <Link
@@ -15,4 +16,4 @@ const FilterLink = ({ filter, children }) => (
     </Link>
 );
 
-export default FilterLink;
+export default container(FilterLink);

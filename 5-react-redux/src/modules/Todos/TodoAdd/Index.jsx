@@ -2,7 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import addTodoContainer from '../containers/addTodoContainer'
+import container from './container'
 
 const TodoAdd = ({ handleTodoAddSubmit }) => {
     let textFieldRef;
@@ -25,4 +25,4 @@ const TodoAdd = ({ handleTodoAddSubmit }) => {
     );
 }
 
-export default addTodoContainer(TodoAdd);
+export default container(TodoAdd);

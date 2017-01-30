@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import Home from '../views/Home'
-import Welcome from '../views/Welcome'
+import Tasks from '../views/Tasks'
+import Dashboard from '../views/Dashboard'
 
 
 class Routes {
@@ -12,8 +12,8 @@ class Routes {
         return (
             <Router history={browserHistory}>
                 <Route path="/" component={this._root.init()}>
-                    <IndexRoute component={Welcome} />
-                    <Route path="/Home(/:filter)" component={Home} />
+                    <IndexRoute component={Dashboard} />
+                    <Route path="/Tasks(/:filter)" component={Tasks} />
                 </Route>
             </Router>
         );
