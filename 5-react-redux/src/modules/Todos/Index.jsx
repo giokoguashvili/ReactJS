@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import VisibleTodoList from './VisibleTodoList'
 import TodoAdd from './TodoAdd'
 import TodosFooter from './TodosFooter'
-// import main from './css/main.css'
+import main from './css/main.css'
 import container from './container'
 
 class Tasks extends Component {
@@ -12,8 +12,7 @@ class Tasks extends Component {
 
     render(){
         return (
-            //class={main.center}
-            <div  style={{width: 460}}>
+            <div class={main.center} style={{width: 460}}>
                 <TodoAdd />
                 <TodosFooter />
                 <VisibleTodoList />
