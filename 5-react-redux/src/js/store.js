@@ -1,7 +1,8 @@
 import { createStore } from 'redux'
 
 class Store {
-    constructor(state, middleware) {
+    constructor(reducer, state, middleware) {
+        this._reducer = reducer;
         this._state = state;
         this._middleware = middleware;
     }
@@ -14,8 +15,8 @@ class Store {
 
     init() {
         const store = createStore(
-            this._state.combinedReducers(),
-            this._state.loadState(),
+            this._reducer.init(),
+            this._state.init(),
             this._middleware.init()
         );
 

@@ -1,14 +1,12 @@
 import { combineReducers } from 'Redux'
 
 class State {
-    constructor(reducer, initialState) {
-        this._reducer = reducer;
+    constructor(initialState) {
+      
         this._initialState = initialState;
     }
-    combinedReducers() {
-        return this._reducer.init();
-    }
-    loadState() {
+    
+    init() {
         try {
             const serializedState = localStorage.getItem('state');
             if (serializedState === null) {

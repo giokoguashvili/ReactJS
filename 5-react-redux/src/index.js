@@ -36,9 +36,9 @@ const initialState = {
 
 new App(
     new Store(
+        new Reducer(),
         new State(
-            new Reducer(),
-            initialState,
+            initialState
         ),
         new Middlewares(
             promise,
@@ -49,5 +49,3 @@ new App(
         new Root()
     )
 ).init();
-
-window.App = App;
