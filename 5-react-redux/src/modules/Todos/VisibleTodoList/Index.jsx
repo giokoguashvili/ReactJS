@@ -9,7 +9,23 @@ class VisibleTodoList extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.fetchData(this.props.filter);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.filter !== prevProps.filter) {
+            this.fetchData(this.props.filter);
+        }
+    }
+
+    fetchData(filter) {
+        console.log(this.props);
+         this.props.fetchTodos(filter);
+    }
+
     render() {
+        const { deleteTodo, toggleTodo } = this.props;
         return (
             <div>
                 <List>
@@ -17,8 +33,8 @@ class VisibleTodoList extends Component {
                         <Todo
                             key={item.id}
                             {...item}
-                            onDeleteBtnClick={this.props.handleDeleteBtnClick}
-                            onTodoClick={this.props.handleTodoClick}
+                            onDeleteBtnClick={deleteTodo}
+                            onTodoClick={toggleTodo}
                             />
                     )}
                 </List>

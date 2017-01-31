@@ -9,7 +9,7 @@ class Store {
             this._state.combinedReducers(),
             this._state.loadState()
         );
-        
+
         store.subscribe(() => {
             this._state.saveState(store.getState());
         });
@@ -27,7 +27,20 @@ class Store {
             }
         }
 
+        const addPromiseSupportToDispatch = (store) => {
+            const rawDispatch = store.dispatch;
+            return (action) => {
+                if (typeof action.then === 'function') {
+                    return action.then(rawDispatch);
+                } else {
+                    return rawDispatch(action);
+                }
+            }
+        }
+
         store.dispatch = addLogginingToDispatch(store);
+        store.dispatch = addPromiseSupportToDispatch(store);
+        
         return store;
     }
 }

@@ -4,5 +4,6 @@ export default fluxConstants([
     'ADD_TODO',
     'DELETE_TODO',
     'TOGGLE_TODO',
-    'SET_VISIBILITY_FILTER'
+    'SET_VISIBILITY_FILTER',
+    'RECEIVE_TODOS'
 ]);
