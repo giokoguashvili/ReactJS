@@ -7,9 +7,10 @@ import Routes from './js/routes'
 import Root from './js/root'
 import Middlewares from './js/middlewares'
 
-import { logger } from './js/middlewares/logger'
-import { promise } from './js/middlewares/promise'
-
+// import { logger } from './js/middlewares/logger'
+// import { promise } from './js/middlewares/promise'
+import createLogger from 'redux-logger'
+import promise from 'redux-promise'
 
 const initialState = {
     todos: {
@@ -42,7 +43,7 @@ new App(
         ),
         new Middlewares(
             promise,
-            logger
+            createLogger()
         )
     ),
     new Routes(

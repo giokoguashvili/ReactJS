@@ -21,6 +21,8 @@ const todoItems = (state = [], action) => {
                 }
                 return item;
             });
+        case ActionTypes.RECEIVE_TODOS:
+            return action.response;
         default:
             return state;
     }
