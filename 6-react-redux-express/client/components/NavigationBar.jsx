@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 
 class NavigationBar extends Component {
     render () {
@@ -6,13 +7,13 @@ class NavigationBar extends Component {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <a href="#" className="navbar-brand">Red Dice</a>
+                        <Link to="/" className="navbar-brand">Red Dice</Link>
                     </div>
 
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#">Sign up</a>
+                                <Link to="/signup">Sign up</Link>
                             </li>
                         </ul>
                     </div>
