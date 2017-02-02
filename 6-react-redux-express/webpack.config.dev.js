@@ -19,7 +19,10 @@ export default {
         rules: [
             {
                 test: /\.jsx?$/,
-                include: [path.resolve(__dirname, 'client')],
+                include: [
+                    path.resolve(__dirname, 'server/shared'),
+                    path.resolve(__dirname, 'client')
+                ],
                 use: [
                     {
                         loader: 'react-hot-loader'
