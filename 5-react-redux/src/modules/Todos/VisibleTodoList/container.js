@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import * as action from './actions'
+import { bindActionCreators } from 'redux'
+import * as actions from './actions'
 import { withRouter } from 'react-router'
 
 const getVisibleTodos = (todoItems, filter) => {
@@ -34,7 +35,7 @@ const visibleTodoListContainer = (component) =>
     withRouter(connect(
         mapStateToProps,
         // mapDispatchToPros,
-        action
+        actions
     )(component));
 
 export default visibleTodoListContainer;
