@@ -10,6 +10,8 @@ router.post('/', (req, res) => {
 
     if (!isValid) {
         res.status(400).json(errors);
+    } else {
+        res.json({ success: true });
     }
 });
 

@@ -39,7 +39,9 @@ class SignupForm extends Component {
             this.props
                 .userSignupRequest(this.state)
                 .then(
-                () => { },
+                () => {
+                    this.context.router.push('/');
+                },
                 (err) => this.setState({ errors: err.response.data, isLoading: false })
                 );
         }
@@ -83,6 +85,7 @@ class SignupForm extends Component {
                     value={this.state.passwordConfirmation}
                     field="passwordConfirmation"
                     />
+
                 <div className="form-group">
                     <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
                         Sign up
@@ -95,6 +98,10 @@ class SignupForm extends Component {
 
 SignupForm.propTypes = {
     userSignupRequest: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm
