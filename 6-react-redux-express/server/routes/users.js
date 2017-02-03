@@ -1,6 +1,6 @@
 import express from 'express'
 import isEmpty from 'lodash/isEmpty'
-
+import bcrypt from 'bcrypt'
 import validateInput from '../shared/validations/signup'
 import User from '../models/user'
 
@@ -11,7 +11,9 @@ router.post('/', (req, res) => {
 
     if (isValid) {
         //res.json({ success: true });
-        const { username, password: password_digest, email } = req.body;
+        const { username, password, email } = req.body;
+        const password_digest = bcrypt.hashSync(password, 10);
+
         User.forge({
             username,
             password_digest,

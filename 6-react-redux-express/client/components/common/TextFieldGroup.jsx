@@ -33,8 +33,8 @@ TextFieldGroup.propTypes = {
     onChange: React.PropTypes.func.isRequired,
 }
 
-TextFieldGroup.defaultProps = {
-    type: 'text'
-}
+// TextFieldGroup.defaultProps = {
+//     type: 'text'
+// }
 
 export default TextFieldGroup

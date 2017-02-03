@@ -6,7 +6,6 @@ import {
 import shortid from 'shortid'
 
 export default (state = [], action = {}) => {
-    console.log(action)
     switch (action.type) {
         case ADD_FLASH_MESSAGE:
             return [

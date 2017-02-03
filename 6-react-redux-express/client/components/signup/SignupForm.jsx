@@ -46,8 +46,9 @@ class SignupForm extends Component {
                     })
                     this.context.router.push('/');
                 },
-                (err) => this.setState({ errors: err.response.data, isLoading: false })
-                );
+                (err) => {
+                    this.setState({ errors: err.response.data, isLoading: false })
+                });
         }
     }
 
@@ -64,6 +65,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.username}
                     field="username"
+                    type="text"
                 />
 
                 <TextFieldGroup
@@ -72,6 +74,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.email}
                     field="email"
+                    type="email"
                 />
 
                 <TextFieldGroup
@@ -80,6 +83,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.password}
                     field="password"
+                    type="password"
                 />
 
                 <TextFieldGroup
@@ -88,6 +92,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.passwordConfirmation}
                     field="passwordConfirmation"
+                    type="password"
                 />
 
                 <div className="form-group">
