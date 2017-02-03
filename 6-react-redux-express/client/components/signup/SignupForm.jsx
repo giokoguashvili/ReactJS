@@ -40,6 +40,10 @@ class SignupForm extends Component {
                 .userSignupRequest(this.state)
                 .then(
                 () => {
+                    this.props.addFlashMessage({
+                        type: 'success',
+                        text: 'You signed up successfully. Welcome!'
+                    })
                     this.context.router.push('/');
                 },
                 (err) => this.setState({ errors: err.response.data, isLoading: false })
@@ -60,7 +64,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.username}
                     field="username"
-                    />
+                />
 
                 <TextFieldGroup
                     error={errors.email}
@@ -68,7 +72,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.email}
                     field="email"
-                    />
+                />
 
                 <TextFieldGroup
                     error={errors.password}
@@ -76,7 +80,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.password}
                     field="password"
-                    />
+                />
 
                 <TextFieldGroup
                     error={errors.passwordConfirmation}
@@ -84,7 +88,7 @@ class SignupForm extends Component {
                     onChange={this.onChange}
                     value={this.state.passwordConfirmation}
                     field="passwordConfirmation"
-                    />
+                />
 
                 <div className="form-group">
                     <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
@@ -97,7 +101,8 @@ class SignupForm extends Component {
 }
 
 SignupForm.propTypes = {
-    userSignupRequest: React.PropTypes.func.isRequired
+    userSignupRequest: React.PropTypes.func.isRequired,
+    addFlashMessage: React.PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {
