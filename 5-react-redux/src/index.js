@@ -12,11 +12,13 @@ import Middlewares from './js/middlewares'
 import createLogger from 'redux-logger'
 import promise from 'redux-promise'
 
+import createSagaMiddleware from 'redux-saga'
+import mySaga from '../src/modules/Todos/VisibleTodoList/saga'
+
 const initialState = {
     todos: {
         visibilityFilter: 'SHOW_ALL',
-        todoItems: [
-            {
+        todoItems: [{
                 id: 'f54c9475-7bd5-40f1-ac9a-c7fa285c385a',
                 text: 'React',
                 completed: true
@@ -35,6 +37,7 @@ const initialState = {
     },
 }
 
+const sagaMiddleware = createSagaMiddleware()
 new App(
     new Store(
         new Reducer(),
@@ -42,6 +45,7 @@ new App(
             initialState
         ),
         new Middlewares(
+            sagaMiddleware,
             promise,
             createLogger()
         )
@@ -50,3 +54,5 @@ new App(
         new Root()
     )
 ).init();
+
+sagaMiddleware.run(mySaga);

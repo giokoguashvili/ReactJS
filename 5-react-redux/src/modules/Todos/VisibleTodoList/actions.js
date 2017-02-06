@@ -17,7 +17,11 @@ const receiveTodos = (filter, response) => ({
     response
 })
 
-export const fetchTodos = (filter) =>
-    api.fetchTodos(filter)
-        .then((response) => receiveTodos(filter, response));
+//export const fetchTodos = (filter) =>
+//    api.fetchTodos(filter)
+//        .then((response) => receiveTodos(filter, response));
 
+export const fetchTodos = (filter) => ({
+    type: ActionTypes.RECEIVE_TODOS,
+    filter
+})

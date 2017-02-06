@@ -8,29 +8,25 @@ let config = {
 
     context: path.join(__dirname, "./"),
 
-    entry: {
-        main: './src/index.js'
-    },
+    entry: ['babel-polyfill', './src/index.js'],
 
     resolve: {
         extensions: ['', '.js', '.jsx', '.css'],
     },
 
     module: {
-        loaders: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'stage-2', 'react'],
-                    plugins: ['react-html-attrs']
-                }
-            }, {
-                test: /\.css$/,
-                loader: 'style!css?modules=true'
+        loaders: [{
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015', 'stage-0', 'react'],
+                plugins: ['react-html-attrs']
             }
-        ]
+        }, {
+            test: /\.css$/,
+            loader: 'style!css?modules=true'
+        }]
     },
 
     plugins: [
@@ -51,7 +47,7 @@ let config = {
     output: {
         path: './build',
         filename: 'app.bundle.js',
-        publicPath : '/'
+        publicPath: '/'
     },
 
     devServer: {
