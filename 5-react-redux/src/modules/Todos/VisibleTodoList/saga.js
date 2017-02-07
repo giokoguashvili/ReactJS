@@ -6,15 +6,18 @@ import * as api from '../../../js/API'
 // .then((response) => receiveTodos(filter, response));
 
 function* fetchTodos(action) {
+    console.log(action)
     const todos = yield call(api.fetchTodos, action.filter);
     yield put({
         type: ActionTypes.RECEIVE_TODOS,
+        fiter: action.filter,
         response: todos
     });
 }
 
 function* mySaga() {
-    yield takeEvery(ActionTypes.RECEIVE_TODOS, fetchTodos);
+    console.log(ActionTypes.FETCH_TODOS)
+    yield takeEvery(ActionTypes.FETCH_TODOS, fetchTodos);
 }
 
 

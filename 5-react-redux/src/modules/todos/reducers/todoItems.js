@@ -6,7 +6,7 @@ const todoItems = (state = [], action) => {
         case ActionTypes.ADD_TODO:
             return [
                 ...state,
-                {  
+                {
                     id: v4(),
                     text: action.text,
                     completed: false
@@ -17,7 +17,7 @@ const todoItems = (state = [], action) => {
         case ActionTypes.TOGGLE_TODO:
             return state.map((item) => {
                 if (item.id === action.todoId) {
-                    return { ...item, completed: !item.completed }
+                    return {...item, completed: !item.completed }
                 }
                 return item;
             });
@@ -26,6 +26,6 @@ const todoItems = (state = [], action) => {
         default:
             return state;
     }
-} 
+}
 
 export default todoItems;

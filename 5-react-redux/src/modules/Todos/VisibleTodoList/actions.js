@@ -22,6 +22,6 @@ const receiveTodos = (filter, response) => ({
 //        .then((response) => receiveTodos(filter, response));
 
 export const fetchTodos = (filter) => ({
-    type: ActionTypes.RECEIVE_TODOS,
+    type: ActionTypes.FETCH_TODOS,
     filter
 })

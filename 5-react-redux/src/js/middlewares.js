@@ -5,7 +5,8 @@ class Middlewares {
         this._middlewares = middlewares;
     }
     init() {
-        return applyMiddleware(...this._middlewares);
+        return this._middlewares;
+        //return applyMiddleware(...this._middlewares);
     }
 }
 

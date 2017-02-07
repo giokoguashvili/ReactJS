@@ -1,4 +1,6 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import mySaga from '../modules/Todos/VisibleTodoList/saga'
 
 class Store {
     constructor(reducer, state, middleware) {
@@ -14,12 +16,14 @@ class Store {
     // }
 
     init() {
+        var middles = this._middleware.init();
+        const sagaMiddleware = createSagaMiddleware();
         const store = createStore(
             this._reducer.init(),
-            this._state.init(),
-            this._middleware.init()
-        );
 
+            applyMiddleware(sagaMiddleware)
+        );
+        sagaMiddleware.run(mySaga);
         store.subscribe(() => {
             this._state.saveState(store.getState());
         });
